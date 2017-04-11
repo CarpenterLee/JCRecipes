@@ -18,7 +18,7 @@
 
 具体内容安排如下：
 
-1. [Atomics.md](./markdown/1-Atomics.md)，介绍常见原子变量
+1. [Atomics](./markdown/1-Atomics.md)，介绍常见原子变量
 2. 并发容器
 线程池
 显示锁
