@@ -66,6 +66,12 @@ LinkedBlockqingDeque可以在构造是指定固定大小，如果没有指定，
 
 `ConcurrentLinkedQueue`是线程安全的队列，`ConcurrentLinkedDeque`是线程安全的双端队列，关于[Queue和Deque的接口说明](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/4-Stack%20and%20Queue.md)前面已经讲的非常清楚，不再赘述。这两个类都是基于链表的，并且没有容量限制，不允许放入`null`值；这两个类的迭代器都是弱一致的(weakly consistent)，在迭代的过程中插入和删除元素并不会导致*ConcurrentModificationException*，并且插入和删除效果会直接体现在迭代器中。值得注意的是，跟大多数容器不同这两个类的size()操作并开销较大，因为需要遍历内部的所有元素（而不是通过一个计数器直接返回），由于遍历过程中也可能有元素的插入和删除操作，最后返回的大小不一定表示当前的实际大小。
 
+## CopyOnWriteArrayList and CopyOnWriteArraySet
+
+`CopyOnWriteArraySet`内部通过`CopyOnWriteArrayList`实现，这里直接介绍CopyOnWriteArrayList，它是一个线程安全的ArrayList，内部通过数组实现，任何改变（add()或者set()等）都会导致产生一个新的内部数组（就像名字中Copy on Write暗示的那样）。你是不是觉得这样实现效率太低，因为如果元素修改频繁，就会导致大量的拷贝，毕竟哪怕只修改一个元素也会导致对所有元素的拷贝。事实确实如此，但该类定位于修改极少而迭代很多的场景，因为修改是在副本上进行的，对CopyOnWriteArrayList的迭代内部并不需要加锁，这使得迭代效率很高。
+
+`CopyOnWriteArraySet`内部通过`CopyOnWriteArrayList`实现，适合于集合很小并且迭代次数远远多于修改次数的场景。
+
 ## ConcurrentSkipListMap and ConcurrentSkipListSet
 
 首先说明`ConcurrentSkipListSet`内部实现是对`ConcurrentSkipListMap`的包装，就像[参阅：HashSet和HashMap](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/6-HashSet%20and%20HashMap.md#hashset)的关系那样，所以这里只着重说一下ConcurrentSkipListMap是个什么东西。ConcurrentSkipListMap是一种基于跳表(skip list)的并发有序Map。跟[参阅：TreeMap](https://github.com/CarpenterLee/JCFInternals/blob/master/markdown/5-TreeSet%20and%20TreeMap.md)类似ConcurrentSkipListMap是按照key值有序的，但内部不是通过红黑树实现，而是通过跳表实现。如果你需要一个按照key值排序且线程安全的Map，相比使用`Collectoins.synchronizedMap(TreeMap)`，ConcurrentSkipListMap显然是最佳选择。
@@ -76,4 +82,4 @@ LinkedBlockqingDeque可以在构造是指定固定大小，如果没有指定，
 
 ## 总结
 
-本文介绍了Java常见的并发容器，使用这些并发容器能够简化编程，同时保证程序效率，当需要使用并发容器时，应首先考虑这里列举的类，而不是使用`Collections.synchronizedXXX()`对非并发容器进行包装。
+本文介绍了Java常见的并发容器，使用这些并发容器能够简化编程，同时保证并发效率，当需要使用并发容器时，应首先考虑这里列举的类，而不是使用`Collections.synchronizedXXX()`对非并发容器进行包装。
