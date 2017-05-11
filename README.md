@@ -20,6 +20,7 @@
 
 1. [Atomics](./markdown/Atomics.md)，介绍常见原子变量
 2. [Concurrent Collections Overview](/markdown/Concurrent%20Collections%20Overview.md)，介绍常见并发容器
+3. [ArrayBlockingQueue](./markdown/ArrayBlockingQueue.md)，结合ArrayBlockingQueue的源码讲解生产者-消费者模式的实现原理
 3. 线程池
 4. 显示锁
 5. ...
