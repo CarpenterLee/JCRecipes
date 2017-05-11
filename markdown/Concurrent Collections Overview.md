@@ -1,4 +1,4 @@
-# Concurrent Collections(I)
+# Concurrent Collections Overview
 
 生产者-消费者模型最简单的实现方式是什么？使用Java语言中的`BlockingQueue`是最简单有效的实现方式。本节我们将对Java并发容器给出介绍，完成我们在[《深入理解Java集合框架》](https://github.com/CarpenterLee/JCFInternals)系列文章中未竟的内容。
 

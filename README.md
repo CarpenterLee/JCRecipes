@@ -18,8 +18,8 @@
 
 具体内容安排如下：
 
-1. [Atomics](./markdown/1-Atomics.md)，介绍常见原子变量
-2. [Concurrent Collections(I)](/markdown/2-Concurrent%20Collections(I).md)，介绍常见并发容器
+1. [Atomics](./markdown/Atomics.md)，介绍常见原子变量
+2. [Concurrent Collections Overview](/markdown/Concurrent%20Collections%20Overview.md)，介绍常见并发容器
 3. 线程池
 4. 显示锁
 5. ...
