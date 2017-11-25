@@ -18,12 +18,13 @@
 
 具体内容安排如下：
 
-1. [Atomics](./markdown/Atomics.md)，介绍常见原子变量
-2. [Concurrent Collections Overview](/markdown/Concurrent%20Collections%20Overview.md)，介绍常见并发容器
-3. [ArrayBlockingQueue](./markdown/ArrayBlockingQueue.md)，结合ArrayBlockingQueue的源码讲解生产者-消费者模式的实现原理
-3. 线程池
-4. 显示锁
-5. ...
+1. [Atomics](./markdown/Atomics.md)，介绍常见原子变量。
+2. [synchronized and Reentrantlock](./markdown/synchronized_and_Reentrantlock.md)，介绍内置锁和显式锁的区别。
+3. [Concurrent Collections Overview](/markdown/Concurrent%20Collections%20Overview.md)，介绍常见并发容器。
+4. [ArrayBlockingQueue](./markdown/ArrayBlockingQueue.md)，结合ArrayBlockingQueue的源码讲解生产者-消费者模式的实现原理。
+5. 线程池
+6. 显示锁
+7. ...
 
 
 
