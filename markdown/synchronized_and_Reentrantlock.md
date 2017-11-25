@@ -25,7 +25,7 @@ public int decrementAndGet(){
 这就是内置锁的全部用法，你已经学会了。
 
 内置锁使用起来非常方便，不需要显式的获取和释放，任何一个对象都能作为一把内置锁。使用内置锁能够解决大部分的同步场景。*“任何一个对象都能作为一把内置锁”*也意味着出现synchronized关键字的地方，都有一个对象与之关联，具体说来：
-
+ 
 - 当synchronized作用于普通方法是，锁对象是this；
 - 当synchronized作用于静态方法是，锁对象是当前类的Class对象；
 - 当synchronized作用于代码块时，锁对象是synchronized(obj)中的这个obj。
