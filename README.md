@@ -22,7 +22,7 @@
 2. [synchronized and Reentrantlock](./markdown/synchronized_and_Reentrantlock.md)，介绍内置锁和显式锁的区别。
 3. [Concurrent Collections Overview](/markdown/Concurrent%20Collections%20Overview.md)，介绍常见并发容器。
 4. [ArrayBlockingQueue](./markdown/ArrayBlockingQueue.md)，结合ArrayBlockingQueue的源码讲解生产者-消费者模式的实现原理。
-5. 线程池
+5. [Executors and ThreadPoolExecutor](./markdown/Executors_and_ThreadPoolExecutor.md) 线程池的用法和注意点。
 6. 显示锁
 7. ...
 
